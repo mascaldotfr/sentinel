@@ -54,9 +54,6 @@ It's considered as finished, as the goal is to stay minimal.
 
 ### External assets
 
-The discipline/skill icons are the work of Nimble Giant
-Entertainement, and are used as fair use.
-
 The [Game icons set](https://game-icons.net/) is licensed
 under the CC-BY 3.0 license terms.
 
