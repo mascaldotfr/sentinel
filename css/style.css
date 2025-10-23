@@ -255,7 +255,6 @@ h2 > a:before {
 		min-height: 4.5em;
 	}
 	#map-map {
-		height: 40vh;
-		width: 40vh;
+		width: 75vw;
 	}
 }
