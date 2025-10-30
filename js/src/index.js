@@ -46,6 +46,8 @@ $(document).ready(function() {
 		const ts = Date.now();
 		const now = new Date(ts);
 		const sec = now.getSeconds();
+		// CoRT API fetch warstatus at the beginning of each minute, so
+		// give it a little time, but not too much.
 		const should_display = sec >= 10 && sec < 15;
 		const on_debounce = ts - last_refresh <= 5000;
 		if (should_display && !on_debounce && !document.hidden) {
