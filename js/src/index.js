@@ -26,8 +26,33 @@ $(document).ready(function() {
 	$("#map-map").css('background-image', 'url("data/map/base_map.png")');
 	$("#map-map").css("background-size", "cover");
 
+	// Data is refreshed :
+	// 	- immediatly, when page is loaded
+	// 	- every minutes between :10 and :15 if the window is visible
+	// 	- immediatly, when the page is focused
+	// Data is not refreshed :
+	// 	- if the window is inactive
+	// 	- if the last refresh was less than 5s ago
+	let last_refresh = Date.now();
 	display(wz, boss, battlezone, stats);
-	setInterval(() => display(wz, boss, battlezone, stats), 60000);
+	window.addEventListener("focus", () => {
+		const ts = Date.now();
+		if (ts - last_refresh > 5000) {
+			display(wz, boss, battlezone, stats);
+			last_refresh = ts;
+		}
+	});
+	setInterval(() => {
+		const ts = Date.now();
+		const now = new Date(ts);
+		const sec = now.getSeconds();
+		const should_display = sec >= 10 && sec < 15;
+		const on_debounce = ts - last_refresh <= 5000;
+		if (should_display && !on_debounce && !document.hidden) {
+			display(wz, boss, battlezone, stats);
+			last_refresh = ts;
+		}
+	}, 5000);
 
 	$(".lang").on("click", (event) => {
 		localStorage.setItem("lang", event.currentTarget.dataset.lang);
