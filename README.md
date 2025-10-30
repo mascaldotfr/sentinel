@@ -12,11 +12,13 @@ which has not been integrated there because it would be redundant.
 ## Deploy
 
 The trainer just requires a webserver serving static files to run, everything
-is run client side. All the rest depends on a CoRT API server though.
+is run client side. All the rest depends on a CoRT API server though; if you
+don't want to depend on the official server you gotta either edit
+`js/dist/bundle.js` or rebuild the bundle (see below).
 
 ## Development
 
-Unlike CoRT where use of nodejs is not wanted, Sentinel is compatible with all
+Unlike CoRT where using nodejs is not wanted, Sentinel is compatible with all
 browsers more recent than Firefox 51 (on Windows XP!!1!), thanks to `eslint`,
 and javascript is as such bundled, with `js/src` used for modern sources, and
 `js/dist` used for public use.
