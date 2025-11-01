@@ -20,6 +20,7 @@ export class Maintenance {
 					// Bail out on empty message (404s fall here as well)
 					if (msg.length == 0)
 						return;
+					$("#noapi").remove();
 					$("body").prepend(`
 						<div class="card bold center" style="background-color:#a9005d">
 							&#9888;&#65039; ${msg}
