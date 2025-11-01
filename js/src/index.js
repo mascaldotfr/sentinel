@@ -41,8 +41,8 @@ $(document).ready(function() {
 	window.addEventListener("focus", () => {
 		const ts = Date.now();
 		if (ts - last_refresh > 5000) {
-			display(wz, boss, battlezone, stats);
 			last_refresh = ts;
+			display(wz, boss, battlezone, stats);
 		}
 	});
 	const maint = new Maintenance(API_BASE + API_MAINT);
