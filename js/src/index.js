@@ -1,8 +1,11 @@
 import {$} from "./libs/cortlibs.js";
 import {_} from "./libs/i18n.js";
 import {Time, Icons, Constants} from "./libs/wztools.js";
+import {Maintenance} from "./libs/maintenance.js";
 
-const API = "https://cort.thebus.top/api/bin/sentinel/sentinel.php";
+const API_BASE = "https://cort.thebus.top/api";
+const API_SENTINEL = "/bin/sentinel/sentinel.php";
+const API_MAINT = "/var/maintenance.txt";
 
 $(document).ready(function() {
 	$("#what-is-sentinel").text(_("Sentinel is Regnum at a glance. For more features,"));
@@ -42,6 +45,7 @@ $(document).ready(function() {
 			last_refresh = ts;
 		}
 	});
+	const maint = new Maintenance(API_BASE + API_MAINT);
 	setInterval(() => {
 		const ts = Date.now();
 		const now = new Date(ts);
@@ -54,6 +58,7 @@ $(document).ready(function() {
 			display(wz, boss, battlezone, stats);
 			last_refresh = ts;
 		}
+		maint.check();
 	}, 5000);
 
 	$(".lang").on("click", (event) => {
@@ -67,7 +72,7 @@ async function display(wz, boss, battlezone, stats) {
 
 	let api_data = null;
 	try {
-		api_data = await $().getJSON(API);
+		api_data = await $().getJSON(API_BASE + API_SENTINEL);
 		$("#sentinel-error").empty();
 		$("#main-container").show();
 	}
