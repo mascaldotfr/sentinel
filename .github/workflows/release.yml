@@ -20,6 +20,12 @@ jobs:
           # Put a fixed version
           sed -i -E 's/(<!--VERSION-->Version: ).+/\1'"${{ github.ref_name }}"'/' index.html
 
+      - name: Create custom tarball
+        run: |
+         tar -czf ${{ runner.temp }}/sentinel-${{ github.ref_name }}.tar.gz \
+            --transform "s,^,sentinel-${{ github.ref_name }}/," \
+            *
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
