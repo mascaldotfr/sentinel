@@ -21,7 +21,7 @@ jobs:
       
       - name: Fix version
         run: |
-          sed -i -E 's/(<!--VERSION-->Version: ).+/\1'"${{ github.ref_name }}"'/' js/menu.js
+          sed -i -E 's/(<!--VERSION-->Version: ).+/\1'"${{ github.ref_name }}"'/' index.html
           
       - name: Setup Pages
         uses: actions/configure-pages@v5
