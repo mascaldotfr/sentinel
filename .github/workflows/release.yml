@@ -1,0 +1,38 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Clean up files with sed
+        run: |
+          # Put a fixed version
+          sed -i -E 's/(<!--VERSION-->Version: ).+/\1'"${{ github.ref_name }}"'/' index.html
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ github.ref_name }}
+          body: |
+            ### About
+            
+            This is an automated release.
+
+            ### Changelog
+          draft: true
+          prerelease: false
+          generate_release_notes: true
+          files: ${{ runner.temp }}/CoRT-${{ github.ref_name }}.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
