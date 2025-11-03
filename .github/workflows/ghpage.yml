@@ -13,9 +13,6 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout tagged commit
         uses: actions/checkout@v4
@@ -24,7 +21,7 @@ jobs:
       
       - name: Fix version
         run: |
-          sed -i -E 's/(<!--VERSION-->Version: ).+/\1'"${{ github.ref_name }}"'/' index.html
+          sed -i -E 's/(<!--VERSION-->Version: ).+/\1'"${{ github.ref_name }}"'/' js/menu.js
           
       - name: Setup Pages
         uses: actions/configure-pages@v5
