@@ -19,10 +19,14 @@ jobs:
         with:
           ref: ${{ github.ref }}
       
-      - name: Fix version
+      - name: Fix version and add cache busting parameter
         run: |
           sed -i -E 's/(<!--VERSION-->Version: ).+/\1'"${{ github.ref_name }}"'/' index.html
-          
+          # Cache bust top js and css
+          VERSION="${{ github.ref_name }}"
+          ESCAPED_VERSION=$(printf '%s\n' "$VERSION" | sha1sum | cut -c1-8)
+          find . -name '*.html' -print0 | xargs -0 sed -E -i'' 's/\.(css|js)(\?[^"]*)?">/.\1?'$ESCAPED_VERSION'">/g'
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

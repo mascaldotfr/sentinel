@@ -15,10 +15,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Clean up files with sed
+      - name: Put fixed version and cache bust parameters
         run: |
           # Put a fixed version
           sed -i -E 's/(<!--VERSION-->Version: ).+/\1'"${{ github.ref_name }}"'/' index.html
+          # Cache bust top js and css
+          VERSION="${{ github.ref_name }}"
+          ESCAPED_VERSION=$(printf '%s\n' "$VERSION" | sha1sum | cut -c1-8)
+          find . -name '*.html' -print0 | xargs -0 sed -E -i'' 's/\.(css|js)(\?[^"]*)?">/.\1?'$ESCAPED_VERSION'">/g'
 
       - name: Create custom tarball
         run: |
