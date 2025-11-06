@@ -131,10 +131,11 @@ class Battlezone {
 	}
 
 	compute_bz(json) {
+		// 60s to round to the next minute, since seconds aren't displayed
 		return {
 			on: 		json["bzon"],
-			ends_in: 	this.time.timestamp_ago(json["bzendsat"])["human"],
-			next_starts_in: this.time.timestamp_ago(json["bzbegin"][0])["human"],
+			ends_in: 	this.time.timestamp_ago(json["bzendsat"] + 60)["human"],
+			next_starts_in: this.time.timestamp_ago(json["bzbegin"][0] + 60)["human"],
 			next_starts_at: this.dformatter.format(json["bzbegin"][0] * 1000),
 		};
 	}
@@ -153,7 +154,7 @@ class Boss {
 		return {
 			name: 	json["next_boss"],
 			at:	this.dformatter.format(new Date(json["next_boss_ts"] * 1000)),
-			_in:	this.time.timestamp_ago(json["next_boss_ts"])["human"]
+			_in:	this.time.timestamp_ago(json["next_boss_ts"], false, true)["human"]
 		};
 	}
 
