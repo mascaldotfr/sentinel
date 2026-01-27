@@ -16,7 +16,7 @@ $(document).ready(function() {
 	$("#boss-title").text(_("Next Boss"));
 	$("#wishes-title").text(_("Last dragon wish"));
 	$("#stolengems-title").text(_("Last gem stolen"));
-	$("#footer-infos").text(_("All hours are local. The page refreshes itself every minute."));
+	$("#footer-infos").text(_("All hours are local. The page refreshes itself every minute. You can click on any title to go to the corresponding CoRT page"));
 	$("#gems-title").text(_("Gems"));
 
 	const wz = new Warzone();

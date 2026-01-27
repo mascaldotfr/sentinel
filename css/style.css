@@ -26,7 +26,7 @@ body {
 	color: var(--foreground);
 	font-family: sans-serif;
 	margin: 0 auto;
-	max-width: 1600px;
+	max-width: 1024px;
 	-webkit-max-logical-width: -webkit-fit-content;
 }
 a {
@@ -72,7 +72,8 @@ main {
 	margin: 0 auto;
 }
 header, footer {
-	margin: 1em;
+	/* align with the main container */
+	max-width: calc(1024px - var(--default_margin_padding) * 4);
 }
 header {
 	grid-area: header;

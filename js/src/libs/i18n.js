@@ -108,11 +108,11 @@ export const __i18n__ = {
 		"es": "hace %s",
 		"de": "vor %s"
 	},
-	"All hours are local. The page refreshes itself every minute.": {
-		"fr": "Toutes les heures sont locales. La page se rafraîchit toutes les minutes.",
-		"es": "Todas las horas son locales. La página se actualiza cada minuto.",
-		"de": "Alle Zeiten sind Ortszeit. Die Seite wird jede Minute aktualisiert."
-	},
+	"All hours are local. The page refreshes itself every minute. You can click on any title to go to the corresponding CoRT page": {
+		"fr": "Toutes les heures sont locales. La page se rafraîchit automatiquement chaque minute. Vous pouvez cliquer sur n’importe quel titre pour accéder à la page CoRT correspondante.",
+		"es": "Todas las horas son locales. La página se actualiza automáticamente cada minuto. Puede hacer clic en cualquier título para ir a la página CoRT correspondiente.",
+		"de": "Alle Zeiten sind Ortszeit. Die Seite aktualisiert sich automatisch jede Minute. Sie können auf einen beliebigen Titel klicken, um zur entsprechenden CoRT-Seite zu gelangen."
+	}
 };
 
 
