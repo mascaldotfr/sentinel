@@ -76,8 +76,8 @@ async function display(wz, boss, battlezone, stats) {
 		$("#sentinel-error").empty();
 		$("#main-container").show();
 	}
-	catch(_unused) {
-		$("#sentinel-error").text(`Unable to fetch API data! Check console.`);
+	catch(error) {
+		$("#sentinel-error").text(error);
 		$("#main-container").hide();
 		return;
 	}
