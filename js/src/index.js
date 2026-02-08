@@ -3,7 +3,7 @@ import {_} from "./libs/i18n.js";
 import {Time, Icons, Constants} from "./libs/wztools.js";
 import {Maintenance} from "./libs/maintenance.js";
 
-const API_BASE = "https://cort.thebus.top/api";
+const API_BASE = "https://cort.ovh/api";
 const API_SENTINEL = "/bin/sentinel/sentinel.php";
 const API_MAINT = "/var/maintenance.txt";
 
