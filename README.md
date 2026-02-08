@@ -6,7 +6,7 @@ to watch several pages.
 
 Each card title have links to CoRT if you need more infos.
 
-It's a lightweight offshoot of [CoRT](https://github.com/mascaldotfr/CoRT),
+It's a lightweight offshoot of [CoRT](https://codeberg.org/mascal/CoRT),
 which has not been integrated there because it would be redundant.
 
 ## Deploy
@@ -41,7 +41,7 @@ To just build:
 npm run build
 ```
 
-The API doc can be found in the [CoRT repo](https://github.com/mascaldotfr/CoRT/tree/main/api/bin/sentinel).
+The API doc can be found in the [CoRT repo](https://codeberg.org/mascal/CoRT/src/branch/main/api/bin/sentinel/README.md).
 
 ## Contributing
 
