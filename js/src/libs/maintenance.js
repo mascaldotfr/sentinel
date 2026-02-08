@@ -22,7 +22,7 @@ export class Maintenance {
 						return;
 					$("#noapi").remove();
 					$("body").prepend(`
-						<div class="card bold center" style="background-color:#a9005d">
+						<div class="card bold center" style="background-color:#a9005d" id="noapi">
 							&#9888;&#65039; ${msg}
 						</div>
 					`);
